@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('kategori/{id}', function ($id) {
+    return "halaman kategori".$id;
 });
+
+Route::resource('kategori','kategoriController')->except(['destroy']);
