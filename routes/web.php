@@ -16,3 +16,15 @@ Route::get('kategori/{id}', function ($id) {
 });
 
 Route::resource('kategori','kategoriController')->except(['destroy']);
+
+Route::get('master', function () {
+    return view('layouts.master');
+});
+
+Route::get('sidebar', function () {
+    return view('layouts.sidebar');
+});
+
+Route::get('dashboard', function () {
+    return view('dashboard.index');
+});
