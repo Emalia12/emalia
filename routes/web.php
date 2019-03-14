@@ -15,7 +15,13 @@ Route::get('kategori/{id}', function ($id) {
     return "halaman kategori".$id;
 });
 
-Route::resource('kategori','kategoriController')->except(['destroy']);
+Route::resource('category','kategoriController');
+Route::get('/lihatdata','crud@index')->name('lihatdata');
+Route::get('tambahdata','kategoriController@addform');
+Route::post('tambahkategori','kategoriController@store');
+Route::get('hapusKategori/{id}','kategoriController@destroy');
+Route::get('editKategori/{id}','kategoriController@editform');
+Route::post('updateKategori/{id}','kategoriController@update');
 
 Route::get('master', function () {
     return view('layouts.master');
@@ -32,3 +38,5 @@ Route::get('dashboard', function () {
 Route::get('dashboard2', function () {
     return view('dashboard.index');
 });
+
+
